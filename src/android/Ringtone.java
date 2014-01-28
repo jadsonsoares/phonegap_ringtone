@@ -17,7 +17,7 @@ public class ringtone extends CordovaPlugin {
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		
 		try {
-		    if (ACTION_ADD_CALENDAR_ENTRY.equals(action)) {
+		    if (ACTION_OPEN_SELECT_RINGTONE.equals(action)) {
 		    	
 		    	callbackContext.error(">>>>>>>>>>>>>>>SUCCESS!!>>>>>>>>>>>>>>>>>>>>");
 		       return true;
