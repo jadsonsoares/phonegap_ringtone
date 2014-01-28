@@ -17,9 +17,10 @@ public class Ringtone extends CordovaPlugin {
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		
 		try {
-		    if (ACTION_ADD_CALENDAR_ENTRY.equals(action)) { 
-		             JSONObject arg_object = args.getJSONObject(0);
-		             Intent calIntent = new Intent(Intent.ACTION_EDIT)
+		    if (ACTION_ADD_CALENDAR_ENTRY.equals(action)) {
+		    	
+		        JSONObject arg_object = args.getJSONObject(0);
+		        Intent calIntent = new Intent(Intent.ACTION_EDIT)
 		        .setType("vnd.android.cursor.item/event")
 		        .putExtra("beginTime", arg_object.getLong("startTimeMillis"))
 		        .putExtra("endTime", arg_object.getLong("endTimeMillis"))
