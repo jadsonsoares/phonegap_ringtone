@@ -3,24 +3,24 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
            id="com.webhouding.ringtone"
       version="0.1.0">
-    <name>Ringtone</name>
-    <description>Sample PhoneGap Select Ringtone</description>
+    <name>ringtone</name>
+    <description>Sample PhoneGap Select ringtone</description>
     <license>MIT</license>
-    <keywords>phonegap,Ringtone</keywords>
+    <keywords>phonegap,ringtone</keywords>
  
  
-    <js-module src="www/Ringtone.js" name="Ringtone">
+    <js-module src="www/ringtone.js" name="ringtone">
         <clobbers target="window.ringtone" />
     </js-module>
  
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="Ringtone">
-                <param name="android-package" value="com.webhouding.ringtone.Ringtone"/>
+            <feature name="ringtone">
+                <param name="android-package" value="com.webhouding.ringtone.ringtone"/>
             </feature>
         </config-file>
  
-        <source-file src="src/android/Ringtone.java" target-dir="src/com/webhouding/ringtone" />      
+        <source-file src="src/android/ringtone.java" target-dir="src/com/webhouding/ringtone" />      
      </platform>          
 </plugin>

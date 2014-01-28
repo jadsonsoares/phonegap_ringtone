@@ -9,7 +9,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Intent;
 
-public class Ringtone extends CordovaPlugin {
+public class ringtone extends CordovaPlugin {
 	
 	public static final String ACTION_OPEN_SELECT_RINGTONE = "selectRingtone";
 	
@@ -19,17 +19,7 @@ public class Ringtone extends CordovaPlugin {
 		try {
 		    if (ACTION_ADD_CALENDAR_ENTRY.equals(action)) {
 		    	
-		        JSONObject arg_object = args.getJSONObject(0);
-		        Intent calIntent = new Intent(Intent.ACTION_EDIT)
-		        .setType("vnd.android.cursor.item/event")
-		        .putExtra("beginTime", arg_object.getLong("startTimeMillis"))
-		        .putExtra("endTime", arg_object.getLong("endTimeMillis"))
-		        .putExtra("title", arg_object.getString("title"))
-		        .putExtra("description", arg_object.getString("description"))
-		        .putExtra("eventLocation", arg_object.getString("eventLocation"));
-		 
-		       this.cordova.getActivity().startActivity(calIntent);
-		       callbackContext.success();
+		    	callbackContext.error(">>>>>>>>>>>>>>>SUCCESS!!>>>>>>>>>>>>>>>>>>>>");
 		       return true;
 		    }
 		    callbackContext.error("Invalid action");

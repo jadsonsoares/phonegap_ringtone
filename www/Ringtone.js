@@ -3,7 +3,7 @@ var calendar =  {
         cordova.exec(
             successCallback, // success callback function
             errorCallback, // error callback function
-            'Ringtone', // mapped to our native Java class called "Calendar"
+            'ringtone', // mapped to our native Java class called "Calendar"
             'selectRingtone', // with this action name
             [{                  // and this array of custom arguments to create our entry
                 "title": title,
