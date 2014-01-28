@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+           id="com.webhouding.ringtone"
+      version="0.1.0">
+    <name>Ringtone</name>
+    <description>Sample PhoneGap Select Ringtone</description>
+    <license>MIT</license>
+    <keywords>phonegap,Ringtone</keywords>
+ 
+ 
+    <js-module src="www/Ringtone.js" name="Ringtone">
+        <clobbers target="window.ringtone" />
+    </js-module>
+ 
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Ringtone">
+                <param name="android-package" value="com.webhouding.ringtone.Ringtone"/>
+            </feature>
+        </config-file>
+ 
+        <source-file src="src/android/Ringtone.java" target-dir="src/com/webhouding/ringtone" />      
+     </platform>          
+</plugin>
