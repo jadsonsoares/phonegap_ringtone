@@ -4,6 +4,7 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.content.Intent;
 import android.media.RingtoneManager;
@@ -51,7 +52,8 @@ public class ringtone extends CordovaPlugin {
 		        // Launch!
 		        //this.cordova.setActivityResultCallback(null);
 		        this.cordova.startActivityForResult(this, intent, RINGTONE_PICKED);
-		        callbackContext.success();
+		        JSONObject rtn = new JSONObject("{'url':'" + ringtoneUri + "'}");
+		        callbackContext.success(rtn);
 		    	
 		        return true;
 		    }
@@ -71,10 +73,13 @@ public class ringtone extends CordovaPlugin {
 		Uri uri = data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
 		if (uri != null)
 		{
-		   System.err.println(">>>>>>>>>>>>>>>>>>>>RINGTONE: " + uri);
-           RingtoneManager.setActualDefaultRingtoneUri(this.cordova.getActivity().getBaseContext(), RingtoneManager.TYPE_RINGTONE, uri);
-           Settings.System.putString(this.cordova.getActivity().getContentResolver(), Settings.System.NOTIFICATION_SOUND, uri.toString());
-           
+			try{
+			   System.err.println(">>>>>>>>>>>>>>>>>>>>RINGTONE: " + uri);
+	           //RingtoneManager.setActualDefaultRingtoneUri(this.cordova.getActivity().getApplication().getBaseContext(), RingtoneManager.TYPE_RINGTONE, uri);
+	           Settings.System.putString(this.cordova.getActivity().getApplication().getContentResolver(), Settings.System.NOTIFICATION_SOUND, uri.toString());
+			}catch (Throwable t) {
+				System.err.println("ERROR>>>>>>" + t.getMessage());
+           }
 		}
     }
 	
